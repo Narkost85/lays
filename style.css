@@ -1,0 +1,172 @@
+body{
+    overflow-x: hidden;
+}
+header .logo img{
+    height: 100px;
+    filter: drop-shadow(0 0 5px white);
+    animation:logo 2s infinite linear ;
+}
+@keyframes logo{
+    to{transform: rotateY(360deg);}
+}
+header{
+    background-color: #222;
+}
+header nav{
+    height: 100%;
+}
+header nav.bg-dark {
+    background-color: #222 !important;
+
+}
+.puzzleslider{
+    height: 650px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    transform-style: preserve-3d;
+    padding: 0;
+}
+.slider{
+    perspective: 850px;
+    overflow: hidden;
+}
+.puzzleslider .pitem{
+    width: 5%;
+    height: 7%;
+    background: url(lays1.jpg) no-repeat 50% 90% / cover fixed;
+    opacity: 0;
+}
+@keyframes puzzle{
+    0% {transform: translateZ(750px);}
+    2%{opacity: 1;}
+    100%{transform: translateZ(0);opacity: 1;}
+    
+}
+.main{
+    position: relative;
+}
+.main h1{
+    position: absolute;
+    top:50%;
+    left: 100%;
+    transform:translate(-50%,-50%);
+    z-index: 5;
+    font-size: 56px;
+    font-family: cursive;
+    font-weight: bold;
+    color:white;
+    text-shadow: 0 0 5px #222;
+    animation: text 6s ease; 
+    white-space: nowrap;
+}
+@keyframes text{
+    0%{left:150%}
+    30%{left:50%}
+    90%{left:50%}
+    100%{left:-100%} 
+}
+.product{
+    padding: 50px 0;
+    gap:10px;
+    justify-content: center;
+    background:url(chips.jpg) no-repeat center/cover;
+}
+.product .item{
+    border: 3px solid yellow;
+    border-radius: 10px;
+    text-align: center;
+    padding: 15px 10px;
+    width: 24%;
+}
+.product .item img{
+    height: 300px;
+}
+@keyframes sharj{
+    0%{transform: rotate(0) scale(1);}
+    10%{transform: rotate(0) scale(1.2);}
+    30%{transform: rotate(-15deg) scale(1.2);}
+    55%{transform: rotate(15deg) scale(1.2);}
+    70%{transform: rotate(-15deg) scale(1.2);}
+    85%{transform: rotate(15deg) scale(1.2);}
+    100%{transform: rotate(0) scale(1);}
+
+}
+.product .item:hover img{
+    animation: sharj 1s ease;
+    transform-origin: bottom;
+}
+.product .item h2{
+    color: red;
+    font:bold 36px cursive;
+    transition: 0.5s;
+}
+.product .item a{
+    text-decoration: none;
+    color:white;
+    padding: 10px 25px;
+    border-radius: 5px;
+    background-color: tomato;
+    font-size: 24px;
+    display: inline-block;
+    cursor: pointer;
+}
+.product .item a:hover{
+    transform: scale(1.2);
+    background-color: red;
+
+}
+.karusel{
+    perspective: 850px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+    background-image: url(10.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.karusel .frik{
+    transform-style: preserve-3d;
+    width: 200px;
+    height: 400px;
+    position: relative;
+    transition: .5s;
+}
+.karusel .frik .item{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    inset: 0;
+    transform: rotateY(calc(var(--i) * 50deg)) translateZ(430px);
+    transition: 0.5s;
+}
+.karusel .frik .item img{
+    width: 220px;
+    height: 290px;
+    object-fit: contain;
+    pointer-events: none;
+}
+.karusel .frik .item.info{
+    transform: rotateY(calc(var(--i) * 50deg)) translateZ(430px) translateX(-200px);
+}
+.karusel .frik .item p{
+    position: absolute;
+    width: 220px;
+    top:50%;
+    left:0;
+    transform: translateY(-50%);
+    color:white;
+    font-family: cursive;
+    font-size: 16px;
+    line-height: 1.3;
+    z-index: -1;
+    background-color: tomato;
+    padding: 15px 15px;
+    text-align: justify;
+    opacity: 0;
+    transition: 1s .5s;
+    /* pointer-events: none; */
+}
